@@ -9,10 +9,11 @@ mkdir -p ~/.openclaw/workspace/skills
 git clone  https://github.com/larack8/skills-china-social.git  ~/.openclaw/workspace/skills/skills-china-social
 ```
 
+kill openclaw process
 
 ```
-pkill -f "openclaw.*gateway"
 pnpm openclaw gateway stop
+pkill -f "openclaw.*gateway"
 launchctl bootout gui/$UID/ai.openclaw.gateway
 rm -f ~/.openclaw/gateway.lock
 ```
@@ -31,7 +32,13 @@ pnpm start gateway
 pnpm start gateway --allow-unconfigured
 
 pnpm start pairing approve feishu CZRQCBMV
+```
 
+Skill configs
+
+```
+pnpm openclaw config get agents.defaults.workspace
+pnpm openclaw skills list | grep skills-china-social
 ```
 
 # how to use
@@ -41,6 +48,6 @@ When the user asks for a greeting, use the `echo` tool to say "Hello from your c
 
 # more
 
-[openclaw源码](https://github.com/openclaw/openclaw.git)
-[skill官方文档](https://docs.openclaw.ai/tools/creating-skills)
+1. [openclaw源码](https://github.com/openclaw/openclaw.git)
+2. [skill官方文档](https://docs.openclaw.ai/tools/creating-skills)
 

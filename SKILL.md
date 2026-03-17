@@ -1,10 +1,6 @@
 ---
 name: skills-china-social
-scope: personal
-enabled: true
-metadata:
-  author: larack
-  version: 1.0.0
+description: Get real-time weather in China.
 triggers:
   - 孙子，今天天气怎样
   - 孙子今天天气怎样
@@ -12,13 +8,14 @@ action:
   - type: tool
     name: browser
     args:
-      url: https://wttr.in/?format=3
+      url: "https://wttr.in/?format=%l+%t+%C"
   - type: system
     content: |
-      用户说：孙子，今天天气怎样。
-      你要乖巧回答，格式固定：
-      爷爷～现在是 {现在时间}，{天气信息}
-      只返回这句话，不要多余内容。
+      回答格式必须是：
+      爷爷～现在是 {当前时间}，{天气信息}
+      只输出这句话，不要多余内容。
 ---
 
-当用户说“孙子，今天天气怎样”，返回当前时间 + 实时天气。
+# China Weather Skill
+
+When the user asks "孙子，今天天气怎样", return real-time weather information in Chinese.
