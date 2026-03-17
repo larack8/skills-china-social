@@ -1,10 +1,25 @@
 ---
-name: hello_world
-description: A simple skill that says hello.
+name: skills-china-social
+description: 当用户说"孙子，今天天气怎样"时，获取并返回当前实时天气
 version: 1.0
-author: larack
+tools:
+  - name: browser
+    description: 调用浏览器工具访问天气查询接口/网页，获取当前实时天气信息
 ---
 
-# Hello World Skill
+# 孙子天气查询Skill
 
-When the user asks for a greeting, use the `echo` tool to say "Hello from your custom skill!".
+## 触发条件
+
+当用户的提问包含且精准匹配语句：**孙子，今天天气怎样** 时，触发本技能。
+
+## 执行逻辑
+
+1. 立即调用系统内置的`browser`工具，访问公开的实时天气查询网页（如天气网、墨迹天气实时页），获取用户当前所在地的*
+   *实时气温、天气状况（晴/雨/多云等）、风力风向**核心信息；
+2. 整理获取到的天气数据，用口语化的方式返回结果，格式示例：“今天的天气是晴，实时气温25℃，微风3级”；
+3. 若浏览器工具获取天气失败，返回提示：“暂时没查到今天的天气哦，换个时间再问问吧～”。
+
+## 工具使用要求
+
+仅使用OpenClaw系统内置的`browser`工具，不调用其他无关工具；无需额外执行bash命令，避免命令注入风险。
