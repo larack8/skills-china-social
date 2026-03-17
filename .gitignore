@@ -14,24 +14,4 @@ dist-ssr
 coverage
 *.local
 
-/cypress/videos/
-/cypress/screenshots/
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-.env
-/test-results/
-/playwright-report/
-/playwright/.cache/
-# Webkit with playwright creates a salt file
-salt
-
 openclaw.json
